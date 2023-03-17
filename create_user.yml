@@ -1,6 +1,6 @@
 ---
 - name: Create pandeeswari user
-  hosts: webservers
+  hosts: webserver
   become: true
 
   tasks:
