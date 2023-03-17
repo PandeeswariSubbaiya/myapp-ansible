@@ -1,0 +1,11 @@
+---
+- name: Create pandeeswari user
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create pandeeswari user
+      user:
+        name: pandeeswari
+        shell: /bin/bash
+        createhome: yes
