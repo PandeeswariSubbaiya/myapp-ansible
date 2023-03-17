@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: webservers
   ignore_errors: true
   ignore_unreachable: true
   remote_user: ubuntu
