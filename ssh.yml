@@ -1,0 +1,13 @@
+- name: Connect to remote host via SSH
+  hosts: all
+  become: true
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Install SSH client on remote host
+      apt:
+        name: openssh-client
+        state: present
+    # Use the encrypted ssh_user variable in your tasks
+    - name: Connect to remote host via SSH
+      command: ssh ubuntu@all command_to_run
