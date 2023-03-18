@@ -10,4 +10,6 @@
         state: present
     # Use the encrypted ssh_user variable in your tasks
     - name: Connect to remote host via SSH
-      command: ssh ubuntu@all command_to_run
+      become: yes
+      hosts: all
+      remote_user: ubuntu
