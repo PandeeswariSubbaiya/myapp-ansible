@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Install Tomcat
+      yum:
+        name: tomcat
+        state: latest
+      become: true
