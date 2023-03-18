@@ -9,5 +9,5 @@
         name: openssh-client
         state: present
     # Use the encrypted ssh_user variable in your tasks
-    - name: Connect to remote host via SSH
-      command: ssh ubuntu@54.172.230.122 command_to_run
+    #- name: Connect to remote host via SSH
+     # command: ssh ubuntu@54.172.230.122 command_to_run
