@@ -1,0 +1,31 @@
+---
+- name: Connect to remote host via SSH
+  hosts: all
+  become: yes
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Create pandeeswari user
+      user:
+        name: pandeeswari
+        shell: /bin/bash
+        createhome: yes
+    - name: downloading tomcat
+      get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.6/bin/apache-tomcat-10.1.6.tar.gz
+        dest: /opt
+    - name: extracting tomcat
+      unarchive:
+        src: /opt/apache-tomcat-10.1.6.tar.gz
+        dest: /opt
+        remote_src: yes
+    - name: Install default JDK
+      apt:
+        name: default-jdk
+        state: present
+    - name: copy jar file
+      copy:
+        src: /var/lib/jenkins/workspace/ansible_Vault/target/LoginWebApp-1
+        dest: /opt/apache-tomcat-10.1.6/webapps/
+    - name: starting tomcat
+      shell: nohup /opt/apache-tomcat-10.1.6/bin/startup.sh &
