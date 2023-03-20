@@ -29,4 +29,3 @@
         dest: /opt/apache-tomcat-10.1.6/webapps
     - name: starting tomcat
       shell: nohup /opt/apache-tomcat-10.1.6/bin/startup.sh &
-      ignore_errors: true
